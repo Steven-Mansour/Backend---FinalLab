@@ -1,4 +1,5 @@
 using BankingSystem.Models;
+using BankingSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BankingsystemdbContext>();
+builder.Services.AddScoped<AccountServices>();
+builder.Services.AddScoped<TransactionServices>();
 
 var app = builder.Build();
 
