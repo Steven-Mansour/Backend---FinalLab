@@ -27,7 +27,8 @@ public class TransactionController: ControllerBase
     [EnableQuery]
     [HttpGet]
     [Route("/transaction-logs")]
-    public IActionResult GetTransactionLogs()
+    public IActionResult GetTransactionLogs([FromQuery] string filter,
+        [FromQuery] string orderby, [FromQuery] int skip,[FromQuery] int top )
     {
         return Ok(_transactionService.GetAllTransactions());
     }
