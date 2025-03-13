@@ -1,5 +1,6 @@
 using BankingSystem.Models;
 using BankingSystem.Services;
+using Microsoft.AspNetCore.OData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BankingsystemdbContext>();
 builder.Services.AddScoped<AccountServices>();
 builder.Services.AddScoped<TransactionServices>();
+builder.Services.AddControllers()
+    .AddOData(opt => opt.Select().Filter().OrderBy().Expand().Count().SetMaxTop(100));
 
 var app = builder.Build();
 

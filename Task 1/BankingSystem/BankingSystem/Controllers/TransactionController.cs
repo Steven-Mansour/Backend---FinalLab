@@ -1,5 +1,7 @@
+using BankingSystem.Models;
 using BankingSystem.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 
 namespace BankingSystem.Controllers;
 
@@ -11,6 +13,31 @@ public class TransactionController: ControllerBase
     public TransactionController(TransactionServices transactionService)
     {
         _transactionService = transactionService;
+    }
+
+    [HttpGet]
+    [Route("/transaction-logs/{accountId}")]
+    public IActionResult GetTransactionLogs(int accountId)
+    {
+        List<TransactionDto> list;
+        list = _transactionService.GetTransactionsByAccountId(accountId);
+        return Ok(list);
+    }
+
+    [EnableQuery]
+    [HttpGet]
+    [Route("/transaction-logs")]
+    public IActionResult GetTransactionLogs()
+    {
+        return Ok(_transactionService.GetAllTransactions());
+    }
+
+    [HttpPost]
+    [Route("/transaction-logs")]
+    public IActionResult CreateTransaction([FromBody] Transaction transaction)
+    {
+        _transactionService.CreateTransaction(transaction);
+        return Ok(transaction );
     }
     
 }

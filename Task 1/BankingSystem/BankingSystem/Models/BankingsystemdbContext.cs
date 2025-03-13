@@ -57,7 +57,7 @@ public partial class BankingsystemdbContext : DbContext
             entity.Property(e => e.Details).HasColumnName("details");
             entity.Property(e => e.Status).HasColumnName("status");
             entity.Property(e => e.Timestamp)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("timestamp");
             entity.Property(e => e.Transactiontype).HasColumnName("transactiontype");
 

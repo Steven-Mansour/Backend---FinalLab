@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BankingSystem.Models;
 
@@ -19,5 +20,6 @@ public partial class Transaction
 
     public string? Details { get; set; }
 
+    [JsonIgnore]
     public virtual Account IdNavigation { get; set; } = null!;
 }

@@ -20,10 +20,9 @@ public class TransactionServices
     public Transaction CreateTransaction(Transaction transaction)
     {
         long? accountID = transaction.Accountid;
-        Account account = _context.Accounts.Find(accountID);
-        if (account == null)
+        if (_context.Accounts.Find(accountID) == null)
         {
-            return null;
+            return new Transaction();
         }
         _context.Transactions.Add(transaction);
         _context.SaveChanges();
