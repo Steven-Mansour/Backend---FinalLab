@@ -9,16 +9,18 @@ namespace BankingSystem.Controllers;
 public class TransactionController: ControllerBase
 {
     private readonly TransactionServices _transactionService;
-
-    public TransactionController(TransactionServices transactionService)
+    private readonly ILogger<TransactionController> _logger;
+    public TransactionController(TransactionServices transactionService, ILogger<TransactionController> logger)
     {
         _transactionService = transactionService;
+        _logger = logger;
     }
 
     [HttpGet]
     [Route("/transaction-logs/{accountId}")]
     public IActionResult GetTransactionLogs(int accountId)
     {
+        _logger.LogInformation("Getting transaction logs for account {AccountId}", accountId);
         List<TransactionDto> list;
         list = _transactionService.GetTransactionsByAccountId(accountId);
         return Ok(list);
@@ -30,6 +32,7 @@ public class TransactionController: ControllerBase
     public IActionResult GetTransactionLogs([FromQuery] string filter,
         [FromQuery] string orderby, [FromQuery] int skip,[FromQuery] int top )
     {
+        _logger.LogInformation("Getting all transaction logs");
         return Ok(_transactionService.GetAllTransactions());
     }
 
@@ -37,7 +40,9 @@ public class TransactionController: ControllerBase
     [Route("/transaction-logs")]
     public IActionResult CreateTransaction([FromBody] Transaction transaction)
     {
+        
         _transactionService.CreateTransaction(transaction);
+       
         return Ok(transaction );
     }
     

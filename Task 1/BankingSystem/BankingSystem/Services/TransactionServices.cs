@@ -6,9 +6,11 @@ namespace BankingSystem.Services;
 public class TransactionServices
 {
     private readonly BankingsystemdbContext _context;
+    private readonly ILogger<TransactionServices> _logger;
 
-    public TransactionServices(BankingsystemdbContext context)
+    public TransactionServices(BankingsystemdbContext context, ILogger<TransactionServices> logger)
     {
+        _logger = logger;
         _context = context;
     }
 
@@ -22,6 +24,7 @@ public class TransactionServices
         long? accountID = transaction.Accountid;
         if (_context.Accounts.Find(accountID) == null)
         {
+            _logger.LogWarning($"Account {accountID} does not exist");
             return new Transaction();
         }
         _context.Transactions.Add(transaction);

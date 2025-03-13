@@ -1,6 +1,7 @@
 using BankingSystem.Models;
 using BankingSystem.Services;
 using Microsoft.AspNetCore.OData;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,16 @@ builder.Services.AddScoped<AccountServices>();
 builder.Services.AddScoped<TransactionServices>();
 builder.Services.AddControllers()
     .AddOData(opt => opt.Select().Filter().OrderBy().Expand().Count().SetMaxTop(100));
-
+builder.Configuration.AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true);
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Logging.ClearProviders(); 
+builder.Logging.AddSerilog(Log.Logger);
+builder.Host.UseSerilog();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

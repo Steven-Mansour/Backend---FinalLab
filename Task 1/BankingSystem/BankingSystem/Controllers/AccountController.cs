@@ -7,9 +7,11 @@ namespace BankingSystem.Controllers;
 public class AccountController:ControllerBase
 {
     private readonly AccountServices _accountService;
+    private readonly ILogger<AccountController> _logger;
 
-    public AccountController(AccountServices accountService)
+    public AccountController(AccountServices accountService, ILogger<AccountController> logger)
     {
+        _logger = logger;
         _accountService = accountService;
     }
 
@@ -17,6 +19,7 @@ public class AccountController:ControllerBase
     [Route("/create-account")]
     public IActionResult CreateAccount([FromBody] AccountDto accountDto)
     {
+        _logger.LogInformation("Creating account for {Email}", accountDto.Email);
         Account account = new Account
         {
             Id = accountDto.Id,
@@ -25,6 +28,7 @@ public class AccountController:ControllerBase
             Email = accountDto.Email
         };
        Account newAcc = _accountService.CreateAccount(account);
+       
        return Ok(newAcc);
     }
     
@@ -32,6 +36,7 @@ public class AccountController:ControllerBase
     [Route("/modify-account")]
     public IActionResult ModifyAccount([FromBody] AccountDto accountDto)
     {
+        _logger.LogInformation("Modifying account for {Email}", accountDto.Email);
         Account account = new Account
             {
                 Id = accountDto.Id,
@@ -40,6 +45,7 @@ public class AccountController:ControllerBase
                 Email = accountDto.Email
             };
         Account newAcc = _accountService.ModifyAccount(account);
+        
         return Ok(newAcc);
     }
     

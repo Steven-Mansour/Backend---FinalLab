@@ -1,0 +1,401 @@
+025-03-13 21:54:11.070 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 21:54:11.124 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 21:54:11.129 +02:00 [INF] Hosting environment: Development
+2025-03-13 21:54:11.133 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 21:54:49.380 +02:00 [INF] Application is shutting down...
+2025-03-13 21:54:53.938 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 21:54:53.994 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 21:54:53.999 +02:00 [INF] Hosting environment: Development
+2025-03-13 21:54:54.004 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 21:55:47.037 +02:00 [INF] Application is shutting down...
+2025-03-13 21:55:52.327 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 21:55:52.379 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 21:55:52.383 +02:00 [INF] Hosting environment: Development
+2025-03-13 21:55:52.385 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 21:56:46.030 +02:00 [INF] Application is shutting down...
+2025-03-13 22:02:40.029 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:02:40.074 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:02:40.076 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:02:40.078 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:02:40.580 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:02:40.811 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 232.3365ms
+2025-03-13 22:02:41.090 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:02:41.314 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 226.0246ms
+2025-03-13 22:03:00.936 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/create-account - application/json;odata.metadata=minimal;odata.streaming=true 83
+2025-03-13 22:03:00.958 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:03:00.973 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem)'
+2025-03-13 22:03:01.040 +02:00 [INF] Route matched with {action = "CreateAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:03:01.633 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:03:01.638 +02:00 [INF] Creating account for string
+2025-03-13 22:03:05.891 +02:00 [ERR] Failed executing DbCommand (269ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?', @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO accounts (id, email, firstname, lastname)
+VALUES (@p0, @p1, @p2, @p3);
+2025-03-13 22:03:06.002 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'BankingSystem.Models.BankingsystemdbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "accounts_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "accounts_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: accounts
+    ConstraintName: accounts_pk
+    File: nbtinsert.c
+    Line: 666
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "accounts_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "accounts_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: accounts
+    ConstraintName: accounts_pk
+    File: nbtinsert.c
+    Line: 666
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-03-13 22:03:06.068 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem) in 5007.8358ms
+2025-03-13 22:03:06.077 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem)'
+2025-03-13 22:03:06.083 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "accounts_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "accounts_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: accounts
+    ConstraintName: accounts_pk
+    File: nbtinsert.c
+    Line: 666
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at BankingSystem.Services.AccountServices.CreateAccount(Account account) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Services\AccountServices.cs:line 17
+   at BankingSystem.Controllers.AccountController.CreateAccount(AccountDto accountDto) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Controllers\AccountController.cs:line 30
+   at lambda_method2(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-13 22:03:06.192 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/create-account - 500 null text/plain; charset=utf-8 5255.6655ms
+2025-03-13 22:03:19.083 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/create-account - application/json;odata.metadata=minimal;odata.streaming=true 87
+2025-03-13 22:03:19.088 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem)'
+2025-03-13 22:03:19.091 +02:00 [INF] Route matched with {action = "CreateAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:03:19.126 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:03:19.130 +02:00 [INF] Creating account for Steven@lau
+2025-03-13 22:03:19.320 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?', @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO accounts (id, email, firstname, lastname)
+VALUES (@p0, @p1, @p2, @p3);
+2025-03-13 22:03:19.368 +02:00 [INF] Account created successfully with ID 5
+2025-03-13 22:03:19.384 +02:00 [INF] Executed action method BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 241.5931ms.
+2025-03-13 22:03:19.409 +02:00 [INF] Executing OkObjectResult, writing value of type 'BankingSystem.Models.Account'.
+2025-03-13 22:03:19.520 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem) in 424.1905ms
+2025-03-13 22:03:19.524 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.CreateAccount (BankingSystem)'
+2025-03-13 22:03:19.527 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/create-account - 200 null application/json; charset=utf-8 444.593ms
+2025-03-13 22:10:25.922 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:10:25.977 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:10:25.979 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:10:25.983 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:10:26.346 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:10:26.586 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 244.0878ms
+2025-03-13 22:10:26.796 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:10:26.964 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 168.8816ms
+2025-03-13 22:10:46.762 +02:00 [INF] Application is shutting down...
+2025-03-13 22:10:51.272 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:10:51.321 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:10:51.322 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:10:51.324 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:10:51.499 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:10:51.755 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 257.0794ms
+2025-03-13 22:10:51.956 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:10:52.108 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 152.1884ms
+2025-03-13 22:10:58.311 +02:00 [INF] Application is shutting down...
+2025-03-13 22:11:03.021 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:11:03.071 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:11:03.075 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:11:03.076 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:11:03.649 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:11:03.858 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 209.8327ms
+2025-03-13 22:11:04.001 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:11:04.173 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 174.302ms
+2025-03-13 22:11:25.376 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 84
+2025-03-13 22:11:25.395 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:11:25.405 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:11:25.454 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:11:25.659 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:11:25.662 +02:00 [INF] Modifying account for string
+2025-03-13 22:11:27.418 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 1947.053ms
+2025-03-13 22:11:27.423 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:11:27.428 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: The key value at position 0 of the call to 'DbSet<Account>.Find' was of type 'Account', which does not match the property type of 'long'.
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindTracked(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at BankingSystem.Services.AccountServices.ModifyAccount(Account account) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Services\AccountServices.cs:line 26
+   at BankingSystem.Controllers.AccountController.ModifyAccount(AccountDto accountDto) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Controllers\AccountController.cs:line 47
+   at lambda_method2(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-13 22:11:27.526 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 500 null text/plain; charset=utf-8 2150.1369ms
+2025-03-13 22:13:06.881 +02:00 [INF] Application is shutting down...
+2025-03-13 22:13:12.137 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:13:12.188 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:13:12.193 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:13:12.195 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:13:12.653 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:13:12.889 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 237.7844ms
+2025-03-13 22:13:13.031 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:13:13.287 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 257.5227ms
+2025-03-13 22:13:22.370 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 84
+2025-03-13 22:13:22.389 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:13:22.401 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:13:22.465 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:13:23.065 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:13:23.077 +02:00 [INF] Modifying account for string
+2025-03-13 22:13:27.807 +02:00 [INF] Executed DbCommand (238ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.email, a.firstname, a.lastname
+FROM accounts AS a
+WHERE a.id = @__p_0
+LIMIT 1
+2025-03-13 22:13:27.887 +02:00 [WRN] Account BankingSystem.Models.Account does not exist
+2025-03-13 22:13:27.892 +02:00 [INF] Successfully modified for string
+2025-03-13 22:13:27.909 +02:00 [INF] Executed action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4821.3872ms.
+2025-03-13 22:13:27.943 +02:00 [INF] Executing OkObjectResult, writing value of type 'BankingSystem.Models.Account'.
+2025-03-13 22:13:28.059 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 5579.6849ms
+2025-03-13 22:13:28.064 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:13:28.094 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 200 null application/json; charset=utf-8 5724.557ms
+2025-03-13 22:14:04.162 +02:00 [INF] Application is shutting down...
+2025-03-13 22:14:09.284 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:14:09.334 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:14:09.336 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:14:09.338 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:14:09.879 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:14:10.115 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 240.109ms
+2025-03-13 22:14:10.240 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:14:10.468 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 229.1736ms
+2025-03-13 22:14:14.663 +02:00 [INF] Application is shutting down...
+2025-03-13 22:14:19.842 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:14:19.892 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:14:19.896 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:14:19.899 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:14:20.349 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:14:20.603 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 254.684ms
+2025-03-13 22:14:20.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:14:20.998 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 247.1171ms
+2025-03-13 22:14:28.458 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 84
+2025-03-13 22:14:28.480 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:14:28.496 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:14:28.565 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:14:29.138 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:14:29.146 +02:00 [INF] Modifying account for string
+2025-03-13 22:14:33.605 +02:00 [INF] Executed DbCommand (260ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.email, a.firstname, a.lastname
+FROM accounts AS a
+WHERE a.id = @__p_0
+LIMIT 1
+2025-03-13 22:14:33.697 +02:00 [WRN] Account BankingSystem.Models.Account does not exist
+2025-03-13 22:14:33.699 +02:00 [INF] Successfully modified for string
+2025-03-13 22:14:33.716 +02:00 [INF] Executed action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4558.0654ms.
+2025-03-13 22:14:33.757 +02:00 [INF] Executing OkObjectResult, writing value of type 'BankingSystem.Models.Account'.
+2025-03-13 22:14:33.884 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 5296.6741ms
+2025-03-13 22:14:33.889 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:14:33.925 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 200 null application/json; charset=utf-8 5466.8272ms
+2025-03-13 22:15:21.645 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 84
+2025-03-13 22:15:21.655 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:15:21.661 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:15:21.686 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:15:21.692 +02:00 [INF] Modifying account for string
+2025-03-13 22:15:21.733 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.email, a.firstname, a.lastname
+FROM accounts AS a
+WHERE a.id = @__p_0
+LIMIT 1
+2025-03-13 22:15:21.746 +02:00 [WRN] Account BankingSystem.Models.Account does not exist
+2025-03-13 22:15:21.751 +02:00 [INF] Successfully modified for string
+2025-03-13 22:15:21.757 +02:00 [INF] Executed action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 65.1624ms.
+2025-03-13 22:15:21.766 +02:00 [INF] Executing OkObjectResult, writing value of type 'BankingSystem.Models.Account'.
+2025-03-13 22:15:21.776 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 108.8708ms
+2025-03-13 22:15:21.783 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:15:21.789 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 200 null application/json; charset=utf-8 144.0546ms
+2025-03-13 22:17:07.174 +02:00 [INF] Application is shutting down...
+2025-03-13 22:17:11.993 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:17:12.038 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:17:12.040 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:17:12.041 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:17:12.706 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:17:12.964 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 262.4579ms
+2025-03-13 22:17:13.157 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:17:13.297 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 140.0666ms
+2025-03-13 22:17:27.203 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 84
+2025-03-13 22:17:27.229 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:17:27.242 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:17:27.307 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:17:27.838 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:17:27.846 +02:00 [INF] Modifying account for string
+2025-03-13 22:17:32.222 +02:00 [INF] Executed DbCommand (218ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.email, a.firstname, a.lastname
+FROM accounts AS a
+WHERE a.id = @__p_0
+LIMIT 1
+2025-03-13 22:17:32.300 +02:00 [WRN] Account 20 does not exist
+2025-03-13 22:17:32.316 +02:00 [INF] Executed action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4458.0522ms.
+2025-03-13 22:17:32.348 +02:00 [INF] Executing OkObjectResult, writing value of type 'BankingSystem.Models.Account'.
+2025-03-13 22:17:32.459 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 5136.3234ms
+2025-03-13 22:17:32.466 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:17:32.497 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 200 null application/json; charset=utf-8 5294.3636ms
+2025-03-13 22:21:35.219 +02:00 [INF] Application is shutting down...
+2025-03-13 22:21:38.352 +02:00 [INF] Now listening on: http://localhost:5047
+2025-03-13 22:21:38.381 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-13 22:21:38.383 +02:00 [INF] Hosting environment: Development
+2025-03-13 22:21:38.384 +02:00 [INF] Content root path: C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem
+2025-03-13 22:21:38.922 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2025-03-13 22:21:39.036 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 115.0433ms
+2025-03-13 22:21:39.095 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2025-03-13 22:21:39.180 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 85.1762ms
+2025-03-13 22:21:50.567 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5047/modify-account - application/json;odata.metadata=minimal;odata.streaming=true 83
+2025-03-13 22:21:50.574 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-03-13 22:21:50.577 +02:00 [INF] Executing endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:21:50.593 +02:00 [INF] Route matched with {action = "ModifyAccount", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModifyAccount(BankingSystem.Services.AccountDto) on controller BankingSystem.Controllers.AccountController (BankingSystem).
+2025-03-13 22:21:50.722 +02:00 [INF] Executing action method BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) - Validation state: "Valid"
+2025-03-13 22:21:50.726 +02:00 [INF] Modifying account for string
+2025-03-13 22:21:51.761 +02:00 [INF] Executed DbCommand (52ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.email, a.firstname, a.lastname
+FROM accounts AS a
+WHERE a.id = @__p_0
+LIMIT 1
+2025-03-13 22:21:51.846 +02:00 [INF] Executed action BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem) in 1249.2567ms
+2025-03-13 22:21:51.847 +02:00 [INF] Executed endpoint 'BankingSystem.Controllers.AccountController.ModifyAccount (BankingSystem)'
+2025-03-13 22:21:51.849 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Account' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at BankingSystem.Services.AccountServices.ModifyAccount(Account account) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Services\AccountServices.cs:line 31
+   at BankingSystem.Controllers.AccountController.ModifyAccount(AccountDto accountDto) in C:\Users\User\Desktop\Inmind labs\Final Lab\Task 1\BankingSystem\BankingSystem\Controllers\AccountController.cs:line 47
+   at lambda_method2(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-13 22:21:51.879 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5047/modify-account - 500 null text/plain; charset=utf-8 1311.8778ms
+2025-03-13 22:22:42.784 +02:00 [INF] Application is shutting down...
