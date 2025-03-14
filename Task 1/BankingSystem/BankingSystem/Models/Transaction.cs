@@ -21,5 +21,5 @@ public partial class Transaction
     public string? Details { get; set; }
 
     [JsonIgnore]
-    public virtual Account IdNavigation { get; set; } = null!;
+    public virtual Account? Account { get; set; }
 }

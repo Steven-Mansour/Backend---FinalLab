@@ -41,6 +41,7 @@ public partial class BankingsystemdbContext : DbContext
             entity.Property(e => e.Lastname)
                 .HasColumnType("character varying")
                 .HasColumnName("lastname");
+            entity.Property(e => e.Userid).HasColumnName("userid");
         });
 
         modelBuilder.Entity<Transaction>(entity =>
@@ -49,21 +50,16 @@ public partial class BankingsystemdbContext : DbContext
 
             entity.ToTable("transactions");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Accountid).HasColumnName("accountid");
             entity.Property(e => e.Amount).HasColumnName("amount");
             entity.Property(e => e.Details).HasColumnName("details");
             entity.Property(e => e.Status).HasColumnName("status");
-            entity.Property(e => e.Timestamp)
-                .HasColumnType("timestamp with time zone")
-                .HasColumnName("timestamp");
+            entity.Property(e => e.Timestamp).HasColumnName("timestamp");
             entity.Property(e => e.Transactiontype).HasColumnName("transactiontype");
 
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.Transaction)
-                .HasForeignKey<Transaction>(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+            entity.HasOne(d => d.Account).WithMany(p => p.Transactions)
+                .HasForeignKey(d => d.Accountid)
                 .HasConstraintName("transactions_accounts_id_fk");
         });
 

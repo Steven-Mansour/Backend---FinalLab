@@ -47,6 +47,33 @@ public class TransactionServices
 
             .ToList();
     }
+
+    public List<CommonTransactionsDto> GetCommonTransactions(List<long> accountIds)
+    {
+        var transactions = _context.Transactions
+            .Where(t => accountIds.Contains(t.Accountid.Value)) 
+            .ToList();
+        
+        var commonAmountTransactions = transactions
+            .GroupBy(t => t.Amount)
+            .Where(g => g.Count() > 1)
+            .Select(g => new CommonTransactionsDto
+            {
+                Amount = g.Key,
+                TransactionType = null,
+                AccountIds = g.Select(t => t.Accountid.Value).Distinct().ToList()
+            });
+        var commonTypeTransactions = transactions
+            .GroupBy(t => t.Transactiontype)
+            .Where(g => g.Count() > 1)
+            .Select(g => new CommonTransactionsDto
+            {
+                Amount = null,
+                TransactionType = g.Key,
+                AccountIds = g.Select(t => t.Accountid.Value).Distinct().ToList()
+            });
+        return commonAmountTransactions.Concat(commonTypeTransactions).ToList();
+    }
 }
 public class TransactionDto
 {
@@ -55,4 +82,12 @@ public class TransactionDto
     public decimal? Amount { get; set; }
     public DateTime? Timestamp { get; set; }
     public string? Status { get; set; }
+}
+
+public class CommonTransactionsDto
+{
+    public long TransactionLogId { get; set; }
+    public List<long> AccountIds { get; set; }
+    public string? TransactionType { get; set; }
+    public decimal? Amount { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankingSystem.Models;
 
@@ -13,5 +14,10 @@ public partial class Account
 
     public string? Email { get; set; }
 
-    public virtual Transaction? Transaction { get; set; }
+    public int? Userid { get; set; }
+    
+    [NotMapped]
+    public long? TotalAmount { get; set; }
+
+    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }

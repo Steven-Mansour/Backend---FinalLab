@@ -34,8 +34,56 @@ public class AccountServices
        _logger.LogInformation($"Account {account.Id} has been updated");
         return account;
     }
+
+    public List<BalanceSummaryDto> GetBalanceSumamry(int userId)
+    {
+        var accounts = _context.Accounts
+            .Where(a => a.Userid == userId)
+            .ToList();
+        decimal finalBalance = 0;
+        var summaries = new List<BalanceSummaryDto>();
+        foreach (var account in accounts)
+        {
+            var transactions = _context.Transactions
+                .Where(t => t.Accountid == account.Id)
+                .ToList();
+
+            
+            foreach (var transaction in transactions)
+            {
+             string type = transaction.Transactiontype;
+             if (type == "Deposit")
+             {
+                 finalBalance += Convert.ToDecimal(transaction.Amount);
+                
+             } else if (type == "Withdraw")
+             {
+                 finalBalance -= Convert.ToDecimal(transaction.Amount);
+             }
+             BalanceSummaryDto summary = new BalanceSummaryDto();
+             summary.AccountId = account.Id;
+             summary.Amount = Convert.ToDecimal(transaction.Amount);
+             summary.TransactionType = type;
+             summaries.Add(summary);
+            }
+        }
+        BalanceSummaryDto summaryDto = new BalanceSummaryDto
+        {
+            TransactionType = "Total Amount",
+            Amount = finalBalance
+        };
+        summaries.Add(summaryDto);
+        return summaries;
+        
+    }
     
     
+}
+public class BalanceSummaryDto
+{
+    public long? AccountId { get; set; }
+    public string? TransactionType { get; set; } 
+    public decimal? Amount { get; set; }
 }
 
 public class AccountDto
